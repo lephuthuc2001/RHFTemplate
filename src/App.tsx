@@ -1,25 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TestingForm from "./components/TestingForm";
+import { useState } from "react";
+import JSONViewer from "./components/JSONViewer";
+import type { FormValues } from "./components/TestingForm";
+function App(): JSX.Element {
+  const [data, setData] = useState<FormValues | null>(null);
 
-function App() {
+  const onSubmitHandler = (data: FormValues) => {
+    setData(data);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TestingForm onSubmit={onSubmitHandler} />
+      <JSONViewer data={data} />
+    </>
   );
 }
 
