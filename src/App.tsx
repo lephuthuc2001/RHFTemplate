@@ -5,7 +5,7 @@ import JSONPretty from "react-json-pretty";
 
 var JSONPrettyAdv = require("react-json-pretty/dist/adventure_time");
 
-const initalValue: FormValues = {
+const initialValue: FormValues = {
   name: "",
   description: "",
   isFootballFan: true,
@@ -13,11 +13,15 @@ const initalValue: FormValues = {
   goat: "",
 };
 function App(): JSX.Element {
-  const [data, setData] = useState<FormValues>(initalValue);
+  const [data, setData] = useState<FormValues>(initialValue);
 
-  const onSubmitHandler = (data: FormValues) => {
-    setData(data);
+  const onSubmitHandler = (newData: FormValues) => {
+    console.log(newData);
+    setData((prev) => {
+      return { ...prev, ...newData };
+    });
   };
+
   return (
     <>
       <TestingForm onSubmit={onSubmitHandler} />
