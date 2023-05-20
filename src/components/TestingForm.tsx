@@ -10,11 +10,11 @@ import RHFSwitch from "../utils/form/RHFSwitch";
 import RHFSelect from "../utils/form/RHFSelect";
 
 export type FormValues = {
-  title: string;
+  name: string;
   description: string;
-  isDone: boolean;
+  isFootballFan: boolean;
   isCool: boolean;
-  goat: "string";
+  goat: string;
 };
 
 interface Props {
@@ -34,26 +34,44 @@ function TestingForm({ onSubmit }: Props) {
       methods={methods}
       submitHandler={submitHandler}
     >
-      <RHFInput name="title" size="middle" placeholder="Type something" />
-      <RHFTextArea name="description" placeholder="Write something" />
-      <RHFCheckbox name="isDone" />
+      <RHFInput
+        addonBefore={"Name"}
+        name="name"
+        size="middle"
+        placeholder="What is your name?"
+      />
+      <RHFTextArea
+        addonBefore={"Name"}
+        name="description"
+        placeholder="Something about yourself..."
+        allowClear
+        showCount
+        autoSize
+      />
+      <RHFCheckbox
+        name="isFootballFan"
+        label={"Football fan?"}
+        defaultChecked
+        defaultValue={true}
+      />
       <RHFSwitch
-        name="isCool"
-        checkedChildren="COOL"
-        unCheckedChildren="not so cool"
-        defaultChecked={true}
+        name="attitude"
+        checkedChildren="Cool"
+        unCheckedChildren="Grumpy"
+        defaultValue={true}
+        defaultChecked
       />
       <RHFSelect
         name="goat"
         placeHoldDer="Who is the goat?"
         options={[
-          { value: "messi", label: "Messi" },
-          { value: "ronaldo", label: "Ronaldo" },
+          { value: "Messi", label: "Messi" },
+          { value: "Ronaldo", label: "Ronaldo" },
         ]}
         title="Who is the gooooooat?"
       />
       <Button type="primary" htmlType="submit">
-        Add
+        Submit
       </Button>
     </RHFProvider>
   );

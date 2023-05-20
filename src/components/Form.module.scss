@@ -1,8 +1,10 @@
 .form__test {
   display: flex;
   flex-direction: column;
-  padding: 200px 24px;
+  padding: 16px;
+  margin: 8px;
   align-items: center;
   gap: 24px;
-  max-width: 500px;
+  border-radius: 12px;
+  border: 2px dashed black;
 }

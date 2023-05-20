@@ -7,12 +7,13 @@ interface Props {
   [key: string]: any;
 }
 
-function RHFSwitch({ name, ...rest }: Props) {
+function RHFSwitch({ name, defaultValue, ...rest }: Props) {
   const methods = useFormContext();
   return (
     <Controller
       control={methods.control}
       name={name}
+      defaultValue={defaultValue}
       render={({ field }) => (
         <Switch {...field} {...rest}>
           {name}

@@ -1,3 +1,8 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
 html,
 body,
 #root {
@@ -28,4 +33,25 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 24px;
+
+  padding: 16px;
+  flex-direction: column;
+  @media (min-width: $sm) {
+    flex-direction: row;
+    padding: 48px;
+  }
+}
+
+#json-viewer {
+  border-radius: 20px;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-json-pretty {
+  border-radius: 12px;
+  padding: 10px;
 }

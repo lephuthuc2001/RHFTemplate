@@ -6,15 +6,16 @@ interface Props {
   [key: string]: any;
 }
 
-function RHFCheckbox({ name, ...rest }: Props) {
+function RHFCheckbox({ name, label, defaultValue, ...rest }: Props) {
   const methods = useFormContext();
   return (
     <Controller
       control={methods.control}
       name={name}
+      defaultValue={defaultValue}
       render={({ field }) => (
         <Checkbox {...field} {...rest}>
-          {name}
+          {label}
         </Checkbox>
       )}
     />
